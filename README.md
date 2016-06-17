@@ -23,15 +23,15 @@ The tables should have the structured pictured in images/talks.png and images/ta
 
 They php scripts be run in this order:
 
-1. gretListofTedTalks.php: generates list of TED Talk pages. Puts the links into TedTalksLinks.txt
-2. readsource.php: Reads TedTalksLinks.txt, looks up each link, scrapes it, finds the link to the transcript on each page, and gets the transcript. Populates the database.
-3. checklist.php: Did readsource get every page? It doesn't for me, maybe because it's sending database uopdates faster than they can be processed? Anyway, this will generate a list of pages that are in TedTalksLinks.txt but not in the database. It writes the missing links to missingurls.txt
-4. readsource.php...but this time change $listOfUrls to "missingurls.txt"
-5. queryTheDB: At last you have a complete-ish database of TED Talks. Write a query in this script and it will output the results as JSON in tedtalks.json.
+1. *getListofTedTalks.php*: generates list of TED Talk pages. Puts the links into tedTalksLinks.txt
+2. *readsource.ph*: Reads tedTalksLinks.txt, looks up each link, scrapes it, finds the link to the transcript on each page, and gets the transcript. Populates the database.
+3. *checklist.php*: Did readsource get every page? It doesn't for me, maybe because it's sending database uopdates faster than they can be processed? Anyway, this will generate a list of pages that are in tedTalksLinks.txt but not in the database. It writes the missing links to missingurls.txt
+4. *readsource.php*...but this time change $listOfUrls to "missingurls.txt"
+5. *queryTheDB*: At last you have a complete-ish database of TED Talks. Write a query in this script and it will output the results as JSON in tedtalks.json.
 
 These scripts are under an MIT open source license. Do what you want with them.
 
-Remember, you promised not to laugh.
+And, remember: you promised not to laugh.
 
 David Weinberger
 June 17, 2016
