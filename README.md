@@ -7,15 +7,16 @@ All of these php files are designed to be run in a browser. At least that's how 
 
 All assume that you have created a file called id.json of this form:
 {
-"mysql":"path to mysql",
-"username" :"username for mysql",
-"password" : "password for mysql",
-"database": "which database"
+"mysql":"path to mysql",  
+"username" :"username for mysql",  
+"password" : "password for mysql",  
+"database": "which database"  
 }
 
 Obviously, replace the values with your real info.
 
 The mysql database consists of two tables:
+
 1. talks: all the info, including the tags as a comma-delimited string, and the entire transcript shoved into a blog because I couldn't get it to work as a big text field. Feel free to correct this.
 2. tags: every tag gets a row with the tag and the id of the talk that is tagged with it. This is potentially useful.
 
