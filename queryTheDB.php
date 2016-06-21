@@ -4,6 +4,11 @@
 // Sample query
 $query = "SELECT * from talks WHERE (tags LIKE '%green%') OR (tags LIKE '%sustainab%') OR (tags LIKE '%ecolog%')  OR (tags LIKE '%environment%') OR (tags LIKE '%conservation%') OR (tags LIKE '%conserving%') OR (tags LIKE '%climate change%') OR (tags LIKE '%resources%')";
 
+// get all but the transcript
+//$query = "SELECT title,author,ddate,description,times_shared,url,tags,transcript_url from talks";
+
+// get it all
+//$query = "SELECT * from talks";
 
 // name of file of results to write
 $outfile_name="tedTalks.txt";
