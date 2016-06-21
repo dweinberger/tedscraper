@@ -36,16 +36,14 @@ The php scripts should be run in this order:
 
 You might want to **dedupe the tables**. Based on [this page](http://www.justin-cook.com/wp/2006/12/12/remove-duplicate-entries-rows-a-mysql-database-table/), this should dedupe the tags table, but I would first back it up because, as noted, I don't know what I'm talking about:
 
-````CREATE TABLE new_tags as SELECT * FROM talks WHERE 1 GROUP BY tag,talkid;  
-RENAME TABLE tags to tags_orig; 
-
-RENAME TABLE new_tags to tags;````
+>CREATE TABLE new_tags as SELECT * FROM talks WHERE 1 GROUP BY tag,talkid;  
+RENAME TABLE tags to tags_orig;  
+RENAME TABLE new_tags to tags;
 
 This should work for the talks table:
 
 ````CREATE TABLE new_talks as SELECT * FROM talks WHERE 1 GROUP BY url;  
-RENAME TABLE talks to talks_orig;  
-
+RENAME TABLE talks to talks_orig;
 RENAME TABLE new_talks to talks;````
 
 ## Updating the info
