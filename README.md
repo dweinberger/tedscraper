@@ -42,9 +42,9 @@ RENAME TABLE new_tags to tags;
 
 This should work for the talks table:
 
-````CREATE TABLE new_talks as SELECT * FROM talks WHERE 1 GROUP BY url;  
+>CREATE TABLE new_talks as SELECT * FROM talks WHERE 1 GROUP BY url;  
 RENAME TABLE talks to talks_orig;
-RENAME TABLE new_talks to talks;````
+RENAME TABLE new_talks to talks;
 
 ## Updating the info
 
