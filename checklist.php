@@ -6,6 +6,11 @@
 $files = file_get_contents("tedTalkLinks.txt");
 $farray = explode(PHP_EOL,$files);
 
+$database_name = "tedtalks";
+$tablename = "talks";
+
+print "<p><b>Checking $databasename (table: $tablename) for duplicates...</b></p>"
+
 $o = fopen("missingurls.txt","w");
 
 //Get user and database info from a file you've created like this:
@@ -23,7 +28,7 @@ $dbh = new mysqli($idjson['mysql'],$idjson['username'],$idjson['password'],$idjs
 		if ($dbh->connect_error > 0){
 	 	die('login.php: Unable to connect to database [' . $dbh->connect_error . ']');
 	 }
-    $database_name = "tedtalks";
+    
 
 $ct = count($farray);
 print "<p>Count: $ct </p>";
@@ -33,7 +38,7 @@ $noctr = 0;
 for ($i=0; $i < count($farray); $i++){
 	$f = $farray[$i];
 	// check the file
-	$query = "SELECT * FROM `talks` where url=\"$f\";";
+	$query = "SELECT * FROM `" . $tablename . "` where url=\"$f\";";
 		$res = $dbh->query($query);
 		if ($res->num_rows > 0){
 			$yesctr++;
