@@ -22,7 +22,33 @@ The mysql database consists of two tables:
 1. talks: all the info, including the tags as a comma-delimited string, and the entire transcript shoved into a blob because I couldn't get it to work as a big text field. Feel free to correct this.
 2. tags: every tag gets a row with the tag and the id of the talk that is tagged with it. This is potentially useful.
 
-The tables should have the structured pictured in images/talks.png and images/tags.png
+Here is the structure of the "talks" table, except I'm pretty sure _transcript_ shouldn't be a blob. I couldn't figure out how to encode the text well enough.
+
+''''CREATE TABLE IF NOT EXISTS `talks` (
+  `talkid` int(11) NOT NULL DEFAULT '0',
+  `url` text NOT NULL,
+  `author` text NOT NULL,
+  `title` text NOT NULL,
+  `ddate` text NOT NULL,
+  `description` text NOT NULL,
+  `tags` text NOT NULL,
+  `transcript_url` text NOT NULL,
+  `transcript` blob NOT NULL,
+  `times_shared` mediumint(32) NOT NULL,
+  `ts` text NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  FULLTEXT KEY `author` (`author`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2227 ;''''
+
+And for the _tags_ table:
+
+''''CREATE TABLE IF NOT EXISTS `tags` (
+  `tag` text NOT NULL,
+  `talkid` mediumint(11) NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='derived from tag strings in talks' AUTO_INCREMENT=18675 ;''''
 
 ## Running the scripts
 
