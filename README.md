@@ -24,7 +24,7 @@ The mysql database consists of two tables:
 
 Here is the structure of the "talks" table, except I'm pretty sure _transcript_ shouldn't be a blob. I couldn't figure out how to encode the text well enough.
 
-''''CREATE TABLE IF NOT EXISTS `talks` (
+````CREATE TABLE IF NOT EXISTS `talks` (
   `talkid` int(11) NOT NULL DEFAULT '0',
   `url` text NOT NULL,
   `author` text NOT NULL,
@@ -39,16 +39,16 @@ Here is the structure of the "talks" table, except I'm pretty sure _transcript_ 
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`),
   FULLTEXT KEY `author` (`author`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2227 ;''''
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2227 ;````
 
 And for the _tags_ table:
 
-''''CREATE TABLE IF NOT EXISTS `tags` (
+````CREATE TABLE IF NOT EXISTS `tags` (
   `tag` text NOT NULL,
   `talkid` mediumint(11) NOT NULL,
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='derived from tag strings in talks' AUTO_INCREMENT=18675 ;''''
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='derived from tag strings in talks' AUTO_INCREMENT=18675 ;````
 
 ## Running the scripts
 
